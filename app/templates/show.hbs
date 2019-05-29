@@ -1,0 +1,8 @@
+Count: {{this.cryptocurrencies.length}}
+
+{{#each this.cryptocurrencies as |crypto|}}
+  <div>
+    <strong>{{crypto.shortName}}</strong>:
+    <label>{{crypto.name}}</label>
+  </div>
+{{/each}}
