@@ -6,6 +6,10 @@ export default class ShowController extends Controller {
     return this.model.abbreviation;
   }
 
+  // because this getter has a dependency on abbreviation,
+  // and abbreviation has a dependency on the model,
+  // and the model changes as the route changes,
+  // this should get re-computed on route navigation, yeah?
   get cryptocurrencies() {
     return this.store.peekAll('cryptocurrency').filter(crypto => {
       return crypto.shortName === this.abbreviation;
