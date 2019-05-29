@@ -7,8 +7,16 @@ export default class ShowController extends Controller {
   }
 
   get cryptocurrencies() {
-    return this.store.peekAll('cryptocurrency').fiilter(crypto => {
+    return this.store.peekAll('cryptocurrency').filter(crypto => {
       return crypto.shortName === this.abbreviation;
     });
+  }
+
+  get allRecords() {
+    return this.store.peekAll('cryptocurrency');
+  }
+
+  get allShortNames() {
+    return this.allRecords.map(crypto => crypto.shortName).join(', ');
   }
 }
