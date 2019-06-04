@@ -1,8 +1,8 @@
-Create:<br>
-<RecordCreator />
-<hr>
-<Navigation />
-
+{{#each this.model.cryptos as |crypto|}}
+  <LinkTo @route='show' @model={{hash id=crypto.shortName}}>
+    {{crypto.shortName}}
+  </LinkTo>
+{{/each}}
 <hr>
 
 {{outlet}}
